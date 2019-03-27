@@ -4080,6 +4080,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
   margin-top: 40px;
   margin-right: 80px;
   margin-left: 80px;
+  border-radius: 5px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
