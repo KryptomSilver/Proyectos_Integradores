@@ -12,14 +12,18 @@ $conn= new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 if ($conn->connect_error) {
 	die('Coult not connect: '. $conn->connect_error);
 }
-$sql = "INSERT INTO datos_generales (Id_Proyecto,Institucion,Departamento,Tituloproyecto,Coordinador,Asignatura) VALUES (NULL,'$institucion','$departamento','$tituloproyecto','$coordinador','$asignatura')";
+$sql = "INSERT INTO datos_generales (Id_Proyecto,Institucion,Departamento,Tituloproyecto,Coordinador,Asignatura)
+ VALUES (NULL,'$institucion','$departamento','$tituloproyecto','$coordinador','$asignatura')";
 
 
 if ($conn->query($sql) === TRUE) {
-
-		echo "Nuevo registro credo";
+		echo "<script>
+                alert('Registro guardado');
+                window.location='registrar_proyecto.html'
+    </script>";
 }else {
 	echo "Error: ". $sql . "<br>". $conn->error;
+
 }
 $conn->close();
 
