@@ -1,86 +1,148 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" href="../css/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/estilo.css">
+  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" href="../img/icono.ico">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/css/bootstrap.min.css">
+  <title>Proyectos Integradores</title>
 </head>
-<div id="Contenedor">
-  <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="https://www.itcolima.edu.mx"><img src="img/icono.ico" width="30" height="30" alt=""></a>
-      <a class="navbar-brand" href="#">Proyectos Integradores</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-          </li>
 
-          <li class="dropdown">
-            <a class="dropbtn">Proyectos</a>
-            <div class="dropdown-content">
-              <a href="Proyectos/ver_proyectos">Ver Proyectos</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <li class="nav-item">
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-log-out"></span> Salir
-        </button>
-      </li>
-    </nav>
-  </div>
-  <div id="contenido">
-    <h3>Datos generales del Proyecto</h3>
-    <form id="formulario">
-      <div class="acomodar">
+<body>
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../img/icono.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+      Proyectos Integradores
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Proyectos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Registar proyectos</a>
+            <a class="dropdown-item" href="#">Ver Proyectos</a>
+            <!--<div class="dropdown-divider"></div> divisor-->
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button type="button" class="btn btn-light">Salir</button>
+      </form>
+    </div>
+  </nav>
+  <br>
+  <div class="container">
+    <h3 class="text-center">Datos generales del Proyecto</h3>
+    <br><br>
+    <form action="procesar.php" method="post">
+      <div class="form-group row">
         <label class="labels">Institucion: </label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="institucion">
           <option>Selecciona una institucion</option>
           <option>Instituto Tecnologico de Colima</option>
         </select>
       </div>
-      <div class="acomodar">
+      <div class="form-group row">
         <label class="labels" id="departamento">Departamento Academico: </label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="departamento">
           <option>Selecciona un departamento</option>
           <option>Ciencias Basicas</option>
         </select>
       </div>
-      <div class="acomodar">
+      <div class="form-group row">
         <label class="labels" for="">Titulo del Proyecto: </label>
-        <input type="text" name="" value="" class="form-control" id="sel1">
+        <input type="text" name="tituloproyecto" value="" class="form-control" id="sel1">
       </div>
-      <div class="acomodar">
+      <div class="form-group row">
         <label class="labels" id="departamento">Coordinador: </label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="coordinador">
           <option>Selecciona un coordinador</option>
-          <option></option>
+          <option>Jose luis</option>
         </select>
       </div>
-      <div class="acomodar">
+      <div class="form-group row">
         <label class="labels" id="departamento">Asignatura: </label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="asignatura">
           <option>Selecciona una asignatura</option>
-          <option></option>
+          <option>Matematicas</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <div class="form-group row">
+        <label class="labels" id="departamento">Colaborador: </label>
+        <select class="form-control" id="sel1" name="colaborador">
+          <option>Selecciona un Colaborador</option>
+          <option>Jose luis</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label class="labels" id="departamento">Cliente: </label>
+        <input type="text" class="form-control" name="cliente" value="">
+        </select>
+      </div>
+      <div class="form-group row">
+        <label class="labels" id="departamento">Plan de estudio: </label>
+        <select class="form-control" id="sel1" name="planestudio">
+          <option>Selecciona el plan estudio</option>
+          <option>Jose luis</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label id="departamento">Periodo: </label>
+        <input id="date" class="form-control" type="date" name="periodo">
+      </div>
+      <div class="form-group row">
+        <label class="labels" id="departamento">Area Conocimiento: </label>
+        <select class="form-control " id="sel1" name="areaconocimiento">
+          <option>Selecciona el area de Conocimiento</option>
+          <option>Jose luis</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label class="labels" id="departamento">Tipo de Ejecucion: </label>
+        <select class="form-control" id="sel1" name="ejecucion">
+          <option>Selecciona el tipo de ejecucion</option>
+          <option>Jose luis</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+
 
     </form>
+    <nav>
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+      </ul>
+    </nav>
   </div>
   <div id="PiePagina">
-    <p>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Jasmin Blanca / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</p>
+    <p class="text-center"><small>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Jasmin Blanca / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</small></p>
   </div>
-</div>
 
 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 
 </html>
