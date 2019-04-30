@@ -13,7 +13,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="https://www.itcolima.edu.mx">
       <img src="../img/icono.ico" width="30" height="30" class="d-inline-block align-top" alt="">
       Proyectos Integradores
     </a>
@@ -23,8 +23,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="../menu.php">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,6 +38,7 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
+        <a href="perfil.html" class=" mr-sm-2"><img src="../img/perfil.png" width="30" height="30" alt=""></a>
         <button type="button" class="btn btn-light">Salir</button>
       </form>
     </div>
@@ -55,7 +56,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Departamento Academico: </label>
+        <label class="labels" id="">Departamento Academico: </label>
         <select class="form-control" id="sel1" name="departamento">
           <option>Selecciona un departamento</option>
           <option>Ciencias Basicas</option>
@@ -66,51 +67,62 @@
         <input type="text" name="tituloproyecto" value="" class="form-control" id="sel1">
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Coordinador: </label>
+        <label class="labels">Coordinador: </label>
         <select class="form-control" id="sel1" name="coordinador">
           <option>Selecciona un coordinador</option>
-          <option>Jose luis</option>
+          <option>Jose luis Lopez</option>
         </select>
       </div>
       <div class="form-group">
         <label class="labels" id="departamento">Asignatura: </label>
         <select class="form-control" id="sel1" name="asignatura">
           <option>Selecciona una asignatura</option>
-          <option>Matematicas</option>
+          <option>Calculo Integral</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Colaborador: </label>
+        <label class="labels" id="">Semestre: </label>
+        <select class="form-control" id="sel1" name="semestre">
+          <option>Selecciona un Semestre</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="labels" id="">Colaborador: </label>
         <select class="form-control" id="sel1" name="colaborador">
           <option>Selecciona un Colaborador</option>
-          <option>Jose luis</option>
+          <option>Abel Romero Ruiz</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Cliente: </label>
+        <label class="labels" id="">Cliente: </label>
         <input type="text" class="form-control" name="cliente" value="">
-        </select>
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Plan de estudio: </label>
+        <label class="labels" id="">Plan de estudio: </label>
         <select class="form-control" id="sel1" name="planestudio">
           <option>Selecciona el plan estudio</option>
-          <option>Jose luis</option>
+          <option>IINF-2010-220</option>
         </select>
       </div>
       <div class="form-group">
-        <label id="departamento">Periodo: </label>
+        <label id="">Periodo Inicio: </label>
+        <input id="date" class="form-control" type="date" name="periodo">
+        <label id="">Periodo Fin: </label>
         <input id="date" class="form-control" type="date" name="periodo">
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Area Conocimiento: </label>
+        <label class="labels" id="">Area Conocimiento: </label>
         <select class="form-control " id="sel1" name="areaconocimiento">
           <option>Selecciona el area de Conocimiento</option>
           <option>Jose luis</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="labels" id="departamento">Tipo de Ejecucion: </label>
+        <label class="labels" id="">Tipo de Ejecucion: </label>
         <select class="form-control" id="sel1" name="ejecucion">
           <option>Selecciona el tipo de ejecucion</option>
           <option>Jose luis</option>
@@ -142,7 +154,7 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../css/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

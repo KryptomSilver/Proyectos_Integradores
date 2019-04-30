@@ -29,7 +29,7 @@
 													<input type="password" class="form-control" name="pass" id="Pass" placeholder="Escribe tu Clave">
 												</div>
 												<p class="text-center">
-													<a href="registro.php" class="btn btn-link" role="button" aria-pressed="true">Registrase</a>
+													<a href="registro.html" class="btn btn-link" role="button" aria-pressed="true">Registrase</a>
 												</p>
 												<p class="text-center">
 													<input type="submit" value="Iniciar sesion" class="btn btn-primary">
