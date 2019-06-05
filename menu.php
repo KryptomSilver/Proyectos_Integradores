@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<?
-
+<?php
+session_start();
+$varsesion = $_SESSION['usuario'];
+if ($varsesion == null || $varsesion = '') {
+  header("Location: index.php");
+}
 ?>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
 
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="img/icono.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="frameworks/Bootstrap-4-4.1.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="frameworks/datatables.min.css"/>
   <link rel="stylesheet" href="css/estilo.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <title></title>
+  <script type="text/javascript" src="frameworks/datatables.min.js"></script>
+  <title>Menu</title>
 </head>
 
 <body>
@@ -37,7 +39,7 @@
             Proyectos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Proyectos/registrar_proyecto.html">Registar proyectos</a>
+            <a class="dropdown-item" href="Proyectos/registrar_proyecto.php">Registar proyectos</a>
             <a class="dropdown-item" href="#">Ver Proyectos</a>
             <!--<div class="dropdown-divider"></div> divisor-->
           </div>
@@ -45,21 +47,27 @@
       </ul>
 
       <form class="form-inline my-2 my-lg-0">
-        <a href="perfil.php" class=" mr-sm-2"><img src="img/perfil.png" width="30" height="30" alt=""></a>
-        <button type="button" class="btn btn-light">Salir</button>
+        <a href="perfil.php" class=" mr-sm-2 btn"><img src="img/perfil.png" width="35" height="35" alt=""></a>
+        <a href="procesos/close.php" class="btn"><img src="img/salir.png" width="35" height="35" alt=""></a>
       </form>
 
     </div>
   </nav>
+  <div class="container">
+
+  
   <div class="row">
     <div class="col">
-      <br><h1 class='text-center'>Proyectos</h1><br>
-      <a href="Proyectos/registrar_proyecto.html" class="btn btn-success btn-lg"  id="boton">Agregar</a>
+      <br><h1 class='text-center'>Proyectos</h1>
+      <a href="Proyectos/registrar_proyecto.php" class="btn btn-success btn-lg"  id="boton">Agregar</a>
     </div>
   </div>
-        <br>
-				<table  border = "1"class="table table-responsive ">
-					<thead class="thead-dark">
+  <div class="row">
+  <div class =""></div>
+  <div class="col-12">
+  <br>
+				<table  class="table table-responsive" id="tabla1">
+					<thead class="">
 						<tr>
               <th>#</th>
               <th>Institucion</th>
@@ -70,7 +78,8 @@
               <th>Semestre</th>
               <th>Cliente</th>
               <th>Plan de estudio</th>
-              <th>Periodo</th>
+              <th>Periodo Inicio</th>
+              <th>Periodo Fin</th>
               <th>Area de conocimiento</th>
               <th>Ejecucion</th>
               <th>Acciones</th>
@@ -79,18 +88,10 @@
 
 					<tbody>
 						<?php
-            $dbhost='localhost';
-            $dbuser='root';
-            $dbpass='';
-            $dbname='proyectos_integradores';
-            $conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
-            if (!$conn) {
-              die('Coult not connect: '. mysqli_error());
-            }
-
-            $sql = 'SELECT * FROM datos_generales';
+            include('php/conexion.php');
+            $sql = "SELECT * FROM datos_generales where  IdUsuario = (SELECT IdUsuario  from usuarios where No_Control ='".$_SESSION['usuario']."')";
             $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_assoc($result)) { ?>
+            while($row = mysqli_fetch_array($result)) { ?>
 							<tr>
                 <td><?php echo $row['Id_Proyecto'];?></td>
                 <td><?php echo $row['Institucion'];?></td>
@@ -102,15 +103,42 @@
                 <td><?php echo$row['Cliente'];?></td>
                 <td><?php echo $row['Planestudio'];?></td>
                 <td><?php echo$row['Periodo'];?></td>
+                <td><?php echo$row['PeriodoFin'];?></td>
                 <td><?php echo$row['Areaconocimiento'];?></td>
                 <td><?php echo $row['Ejecucion'];?></td>
-                <td><a href="#" data-href="delete.php?id=<?php echo $row['Id_Proyecto']; ?>" data-toggle="modal" data-target="#confirm-delete"><img src="img/eliminar.ico" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-                <a href="modificar.php?id=<?php echo $row['Id_Proyecto']; ?>"><img src="img/editar.ico" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+                
+                <td><a href="#" data-href="procesos/delete.php?id=<?php echo $row['Id_Proyecto']; ?>" data-toggle="modal" data-target="#confirm-delete"><img src="img/eliminar.ico" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+                <a href="editar_proyecto.php?id=<?php echo $row['Id_Proyecto']; ?>"><img src="img/editar.ico" width="30" height="30" class="d-inline-block align-top" alt=""></a>
                 </td>
   							</tr>
 						<?php } ?>
-					</tbody>
+          </tbody>
+          <tfoot>
+          <tr>
+              <th>#</th>
+              <th>Institucion</th>
+              <th>Departamento</th>
+              <th>Tituloproyecto</th>
+              <th>Coordinador</th>
+              <th>Asignatura</th>
+              <th>Semestre</th>
+              <th>Cliente</th>
+              <th>Plan de estudio</th>
+              <th>Periodo Inicio</th>
+              <th>Periodo Final</th>
+              <th>Area de conocimiento</th>
+              <th>Ejecucion</th>
+              <th>Acciones</th>
+						</tr>
+                </tfoot>
 				</table>
+  </div>
+<div class=""></div>
+
+  </div>
+  
+</div>
+        
 
 
 
@@ -136,7 +164,7 @@
 				</div>
 			</div>
 		</div>
-
+    
 		<script>
 			$('#confirm-delete').on('show.bs.modal', function(e) {
 				$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
@@ -145,9 +173,14 @@
 			});
 		</script>
 <div id="PiePagina">
-  <p class="text-center"><small>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Jasmin Blanca / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</small></p>
+  <p class="text-center"><small>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Blanca Jazmin Victorino Espinoza, Jose Alberto Lopez Muñoz / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</small></p>
 </div>
 
 </body>
-
+<script>
+$('#tabla1').DataTable( {
+    
+        
+    } );
+</script>
 </html>

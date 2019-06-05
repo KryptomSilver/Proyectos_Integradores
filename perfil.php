@@ -1,3 +1,11 @@
+<?php
+session_start();
+$varsesion = $_SESSION['usuario'];
+if ($varsesion == null || $varsesion = '') {
+  header("Location: index.php");
+  die();
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="img/icono.ico">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="frameworks/Bootstrap-4-4.1.1/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/estilo.css">
   <title>Proyectos Integradores</title>
 </head>
@@ -39,8 +47,8 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <a href="#" class=" mr-sm-2"><img src="img/perfil.png" width="30" height="30" alt=""></a>
-        <button type="button" class="btn btn-light">Salir</button>
+        <a href="#" class=" mr-sm-2"><img src="img/perfil.png" width="35" height="35" alt=""></a>
+        <a href="procesos/close.php" class="btn"><img src="img/salir.png" width="35" height="35" alt=""></a>
       </form>
     </div>
   </nav>
@@ -48,8 +56,10 @@
   <div class="container">
     <div class="Nombre">
       <?php
+      $varperfil = $_SESSION['usuario'];
+      echo $varperfil;
       $conexion = mysqli_connect("localhost", "root", "", "proyectos_integradores");
-      $sql = "SELECT * FROM usuarios where No_Control = '16460094'";
+      $sql = "SELECT * FROM usuarios where No_Control = '$varperfil'";
       $result = mysqli_query($conexion, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<p class='text-center'>Nombre: ".$row['Nombre']."\n".$row['PrimerAp']."\n".$row['SegundoAp']."\n"."</p>";
@@ -59,7 +69,7 @@
     <div class="">
       <?php
       $conexion = mysqli_connect("localhost", "root", "", "proyectos_integradores");
-      $sql = "SELECT * FROM usuarios where No_Control = '16460094'";
+      $sql = "SELECT * FROM usuarios where No_Control = '$varperfil'";
       $result = mysqli_query($conexion, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<p class='text-center'>No. Control: " .$row['No_Control']."</p>";
@@ -69,7 +79,7 @@
     <div class="">
       <?php
       $conexion = mysqli_connect("localhost", "root", "", "proyectos_integradores");
-      $sql = "SELECT * FROM usuarios where No_Control = '16460094'";
+      $sql = "SELECT * FROM usuarios where No_Control = '$varperfil'";
       $result = mysqli_query($conexion, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<p class='text-center'>Correo: " .$row['email']."</p>";
@@ -79,7 +89,7 @@
 
   </div>
   <div id="PiePagina">
-    <p class="text-center"><small>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Jasmin Blanca / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</small></p>
+    <p class="text-center"><small>Proyectos Integradores/ Abel Romero Ruiz, Edy Fernando Negrete, Blanca Jazmin Victorino Espinoza, Jose Alberto Lopez Muñoz / © (26/03/2019). (Instituto Tegnologico de colima). Todos los derechos reservados.</small></p>
   </div>
 
 

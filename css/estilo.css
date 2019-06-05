@@ -1,8 +1,26 @@
+
+
+
+#PiePaginaindex {
+  margin-top: 40px;
+}
+
 #PiePagina {
-  margin-top: 100%;
+  margin-top: 10px;
 }
 
 #boton {
   margin-left: 80%;
-  margin-bottom: 20px;
+  margin-top: -82px;
+
+}
+
+#imagenindex {
+  margin-left: 40%;
+  margin-bottom: 30px;
+}
+
+
+.navbar {
+  margin-bottom: 0;
 }
